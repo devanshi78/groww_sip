@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIP Calculator - Systematic Investment Plan Calculator Online</title>
+    <!-- favicon -->
+    <link rel="icon" href="./assets/images/favicon32x32-groww.ico">
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="./assets/css/all.min.css">
+
+    <!-- css -->
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <!-- Header start -->
+    <header class="py-3 px-4">
+        <div class="container-fluid">
+            <div class="row justify-content-center align-content-center">
+                <div class="col-8 d-flex align-items-center">
+                    <img src="./assets/images/groww_logo.961dcfc1.webp" class="img-fluid me-3 groww-logo" alt="Groww Logo">
+                    <ul class="d-flex justify-content-center align-content-center mb-0 ps-0">
+                        <li class="px-3">
+                            <a href="#" class="text-secondary fw-medium">Stocks</a>
+                        </li>
+                        <li class="px-3">
+                            <a href="#" class="text-secondary fw-medium">F&O</a>
+                        </li>
+                        <li class="px-3">
+                            <a href="#" class="text-secondary fw-medium">Mutual Funds</a>
+                        </li>
+                        <li class="px-3 border-start">
+                            <a href="#" class="text-secondary fw-medium">More</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-4 d-flex align-content-end">
+                    <div class="position-relative me-3 search-container">
+                        <input class="form-control ps-5" type="search" placeholder="Search Groww...">
+                        <i class="fa-solid fa-magnifying-glass position-absolute top-50 start-0 translate-middle-y ms-3 text-muted"></i>
+                        <small class="position-absolute end-0 top-50 translate-middle-y text-muted me-3 search-shortcut">Ctrl+K</small>
+                    </div>
+                    <button class="btn text-bg-success px-3 login-button">Login/Sign up</button>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Header end -->
+
+    <!-- Main section start -->
+    <main class="px-4">
+        <section class="calculator">
+            <div class="container-fluid">
+                <h3 style="color: #44475b;" class="fw-medium my-4">SIP Calculator</h3>
+                <div class="row">
+                    <div class="col-8">
+                        <div class="border rounded-3 px-4 py-4">
+                            <div class="d-flex align-items-center py-4">
+                                <h6 class="text-success bg-success-subtle px-3 py-2 rounded-pill">SIP</h6>
+                                <h6 class="text-muted ps-5">Lumpsum</h6>
+                            </div>
+                            <div class="row">
+                                <div class="col-7">
+                                    <div class="mb-5">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <label class="form-label">Monthly investment</label>
+                                            <output class="bg-success-subtle rounded-1 px-3 py-1 text-success fw-bold" for="customRange1" id="rangeValue" aria-hidden="true">
+                                                <span id="rupeeSymbol">₹</span>
+                                                <span id="amountValue" class="ms-2">25000</span>
+                                            </output>
+                                        </div>
+                                        <input type="range" class="form-range" min="500" max="1000000" step="500" value="25000" id="customRange1">
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <label class="form-label">Expected return rate (p.a)</label>
+                                            <output class="bg-success-subtle rounded-1 px-3 py-1 text-success fw-bold" for="returnRateRange" id="rangeValue" aria-hidden="true">
+                                                <span id="returnRateValue" class="ms-2">12</span>
+                                                <span id="rupeeSymbol">%</span>
+                                            </output>
+                                        </div>
+                                        <input type="range" class="form-range" min="1" max="30" step="1" value="12" id="returnRateRange">
+                                    </div>
+                                    <div class="mb-5">
+                                        <div class="d-flex justify-content-between mb-3">
+                                            <label class="form-label">Time period</label>
+                                            <output class="bg-success-subtle rounded-1 px-3 py-1 text-success fw-bold" for="monthlyInvestmentRange" id="rangeValue" aria-hidden="true">
+                                                <span id="monthlyInvestmentValue" class="ms-2">10</span>
+                                                <span id="rupeeSymbol">Yr</span>
+                                            </output>
+                                        </div>
+                                        <input type="range" class="form-range" min="1" max="40" step="1" value="10" id="monthlyInvestmentRange">
+                                    </div>
+                                    <div id="summary" class="mb-4">
+                                        <div class="d-flex justify-content-between text-secondary mb-2">
+                                            <span>Invested amount</span>
+                                            <span id="investedAmount">₹0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between text-secondary mb-2">
+                                            <span>Est. returns</span>
+                                            <span id="estimatedReturns">₹0</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between text-secondary mb-2">
+                                            <span>Total value</span>
+                                            <span id="totalValue">₹0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-5 d-flex flex-column align-items-center text-center">
+                                    <div class="d-flex justify-content-center gap-4 mb-3">
+                                    <div class="d-flex align-items-center">
+                                        <span style="display:inline-block; width:25px; height:12px; background-color:#EEF0FF; border-radius:20px; margin-right:8px;"></span>
+                                        <span class="text-secondary small">Invested amount</span>
+                                    </div>
+                                    <div class="d-flex align-items-center">
+                                        <span style="display:inline-block; width:25px; height:12px; background-color:#4C6EF5; border-radius:20px; margin-right:8px;"></span>
+                                        <span class="text-secondary small">Est. returns</span>
+                                    </div>
+                                    </div>
+                                    <div style="width: 200px; height: 200px;">
+                                    <canvas id="sipChart"></canvas>
+                                    </div>
+                                    <button class="btn btn-success mt-4 px-4 fw-semibold">INVEST NOW</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pt-5">
+                            <h4 class="text-dark-emphasis my-4">SIP Calculator – Systematic Investment Plan Calculator</h4>
+                            <p class="text-secondary" style="text-align: justify;">Prospective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that helps you determine the returns you can avail when parking your funds in such investment tools. Systematic Investment Plan or <a href="" class="text-success">SIP</a> is a process of investing a fixed sum of money in mutual funds at regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly. </p>
+                        </div>
+                        <div class="pt-5">
+                            <h4 class="text-dark-emphasis my-4">SIP Calculator – Systematic Investment Plan Calculator</h4>
+                            <p class="text-secondary" style="text-align: justify;">Prospective investors can think that SIPs and mutual funds are the same. However, SIPs are merely a method of investing in mutual funds, the other method being a lump sum. A SIP calculator is a tool that helps you determine the returns you can avail when parking your funds in such investment tools. Systematic Investment Plan or <a href="#" class="text-success">SIP</a> is a process of investing a fixed sum of money in mutual funds at regular intervals. SIPs usually allow you to invest weekly, quarterly, or monthly. </p>
+                        </div>
+                        <div class="pt-1">
+                            <h4 class="text-dark-emphasis mb-4">What is a SIP Calculator?</h4>
+                            <p class="text-secondary">A SIP calculator is a simple tool that allows individuals to get an idea of the returns on their <a href="" class="text-success">mutual fund</a> investments made through SIP. SIP investments in mutual funds have become one of the most popular investment options for millennials lately. <br>
+                            <br>
+                            These mutual fund sip calculators are designed to give potential investors an estimate on their mutual fund investments. However, the actual returns offered by a mutual fund scheme varies depending on various factors. The SIP calculator does not provide clarification for the exit load and expense ratio (if any). <br>
+                            <br>
+                            This calculator will calculate the wealth gain and expected returns for your monthly SIP investment. Indeed, you get a rough estimate on the maturity amount for any of your monthly SIP, based on a projected annual return rate.</p>
+                        </div>
+                        <div class="pt-1">
+                            <h4 class="text-dark-emphasis mb-4">How can a SIP return calculator help you?</h4>
+                            <p class="text-secondary">SIPs are a more lucrative mode of investing funds compared to a <a href="" class="text-success">lump sum</a> amount according to several mutual fund experts. It helps you become financially disciplined and create a habit of savings that can benefit you in the future.</p>
+                            <p class="text-secondary">A SIP calculator online is a beneficial tool, which shows the estimated returns you will earn after the investment tenure.</p>
+                            <p class="text-secondary">Few of the benefits of SIP calculators include –</p>
+                            <ol class="text-secondary" style="list-style-type: decimal;">
+                                <li class="mb-3">Assists you to determine the amount you want to invest in.</li>
+                                <li class="mb-3">Tells you the total amount you have invested.</li>
+                                <li class="mb-3">Gives an estimated value of the returns.</li>
+                            </ol>
+                        </div>
+                        <div class="pt-1">
+                            <h4 class="text-dark-emphasis mb-4">How do SIP calculators work?</h4>
+                            <p class="text-secondary">A SIP plan calculator works on the following formula –</p>
+                            <p class="text-secondary">M = P × ({[1 + i]^n – 1} / i) × (1 + i).</p>
+                            <p class="text-secondary">In the above formula –</p>
+                            <ul class="text-secondary ps-3" style="list-style-type: disc;">
+                                <li class="mb-3">M is the amount you receive upon maturity.</li>
+                                <li class="mb-3">P is the amount you invest at regular intervals.</li>
+                                <li class="mb-3">n is the number of payments you have made.</li>
+                                <li class="mb-3">i is the periodic rate of interest.</li>
+                            </ul>
+                            <p class="text-secondary">Take for example you want to invest Rs. 1,000 per month for 12 months at a periodic rate of interest of 12%.</p>
+                            <p class="text-secondary">then the monthly rate of return will be 12%/12 = 1/100=0.01</p>
+                            <p class="text-secondary">Hence, M = 1,000X ({[1 +0.01 ]^{12} – 1} / 0.01) x (1 + 0.01)</p>
+                            <p class="text-secondary">which gives Rs 12,809 Rs approximately in a year.</p>
+                            <p class="text-secondary">The rate of interest on a SIP will differ as per market conditions. It may increase or decrease, which will change the estimated returns.</p>
+                        </div>
+                        <div class="pt-1">
+                            <h4 class="text-dark-emphasis mb-4">How to use Groww’s systematic investment plan calculator?</h4>
+                            <p class="text-secondary">You can use the SIP amount calculator from Groww within a few clicks.</p>
+                            <p class="text-secondary">Just enter the monthly invested amount (the amount for which you have started the SIP), the number of years for which you want to stay invested, and the expected rate of return.</p>
+                            <p class="text-secondary">As soon as you input the value, the calculator will show you the estimated amount you can avail after your investment tenure is complete.</p>
+                        </div>
+                        <div class="pt-1">
+                            <h4 class="text-dark-emphasis mb-4">Advantages of using Groww systematic investment plan calculator</h4>
+                            <p class="text-secondary">Groww offers the best SIP calculator, which provides the following advantages –</p>
+                            <ul class="text-secondary ps-3" style="list-style-type: disc;">
+                                <li class="mb-3">Plan your investment based on the amount and tenure.</li>
+                                <li class="mb-3">It helps you compute an estimation of the total value of investments at the end of your SIP tenure.</li>
+                                <li class="mb-3">Shows accurate results and helps you save time required during a manual calculation.</li>
+                            </ul>
+                            <p class="text-secondary">A systematic investment plan calculator ensures that your savings portfolio is as per your requirements and financial needs.</p>
+                        </div>
+                        <div class="py-4">
+                            <h4 class="text-dark-emphasis mb-4">FAQs</h4>
+                            <div class="accordion accordion-flush" id="accordionPanelsStayOpenExample">
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseone" aria-expanded="false" aria-controls="panelsStayOpen-collapseone">
+                                        How much can I invest in a SIP?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapseone" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        There is no limit to the amount you can invest in a SIP. The minimum amount that you can invest is Rs. 500 per month.
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse2" aria-expanded="false" aria-controls="panelsStayOpen-collapse2">
+                                        What is the maximum tenure of a SIP?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse2" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        There is no maximum tenure of a SIP. You can invest as long as you can. The minimum tenure you can go for is 3 years.
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse3" aria-expanded="false" aria-controls="panelsStayOpen-collapse3">
+                                        Are SIPs similar to mutual funds?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse3" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        People often tend to think of SIP as either mutual funds or different than a mutual fund. The fact is that SIP is just a style of investment and not a fund/scheme or a stock/investment avenue. It is an investment vehicle to invest periodically in a fund/scheme of your choice.
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse4" aria-expanded="false" aria-controls="panelsStayOpen-collapse4">
+                                        Can I modify my SIP amount?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse4" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        Yes, you can anytime check your returns with SIP investment calculator and increase or decrease the SIP amount
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse5" aria-expanded="false" aria-controls="panelsStayOpen-collapse5">
+                                        Do SIP allows only equity mutual funds investments?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse5" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        No, you can invest in debt and <a href="#" class="text-success">hybrid mutual funds</a> through SIP.
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse6" aria-expanded="false" aria-controls="panelsStayOpen-collapse6">
+                                        What are the types of SIPs available?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse6" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        <p>Different types of SIPs are available in the market like –</p>
+                                        <ul style="list-style-type: disc;">
+                                            <li>Step-up or top-up SIP: A step-up or top-up SIP enables you to increase the investment amount automatically at specified intervals at a particular amount or percentage.</li>
+                                            <li>Perpetual SIP: A perpetual SIP enables you to keep investing as long as you wish to without any end date.</li>
+                                            <li>Trigger SIP: A trigger SIP lets you start investing during a specific index level,<a href="#">NAV</a>, date, or event.</li>
+                                        </ul>
+                                        <p>Flexible SIP: A flexible SIP lets you change the amount you are investing in according to your preference.</p>
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse7" aria-expanded="false" aria-controls="panelsStayOpen-collapse7">
+                                        Can I renew a SIP?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse7" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        Yes, you can renew a SIP automatically. Companies also give you the option to cancel this auto-renew feature.
+                                    </div>
+                                    </div>
+                                </div>
+                                <div class="accordion-item text-secondary">
+                                    <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed text-dark-emphasis" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapse8" aria-expanded="false" aria-controls="panelsStayOpen-collapse8">
+                                        Can I pause my investments in a SIP?
+                                    </button>
+                                    </h2>
+                                    <div id="panelsStayOpen-collapse8" class="accordion-collapse collapse">
+                                    <div class="accordion-body">
+                                        Yes, mutual fund companies also provide the option of pausing your SIP investments up for a specified period.
+                                    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <div class="border rounded-3 px-4 py-4 text-center mb-4">
+                            <img src="./assets/images/Start Investing_2.png" class="d-inline-block" style="width: 130px;" alt="">
+                            <h5 class="mb-3 text-muted">Build Wealth, One SIP at a Time</h5>
+                            <p class="text-secondary" style="font-size: 14px;">Start a SIP and harness the power of compounding through consistent, long-term investing.</p>
+                            <a href="#" class="btn btn-success d-block fw-medium" style="font-size: 14px;">START SIP WITH ₹500</a>
+                        </div>
+                        <div class="border rounded-3 overflow-hidden mb-4">
+                            <table class="table border rounded table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-secondary">Popular Calculators</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Lumpsum Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">SWP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Mutual Fund Returns Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Sukanya Samriddhi Yojana Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Income Tax Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">PPF Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">EPF Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">FD Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">RD Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">EMI Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">GST Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">XIRR Calculator</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="border rounded-3 overflow-hidden">
+                            <table class="table border rounded table-hover mb-0">
+                                <thead>
+                                    <tr>
+                                        <th scope="col" class="text-secondary">Mutual Fund Calculators</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">ELSS Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">SBI SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">HDFC SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">ICICI SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Axis Bank SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Kotak Bank SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">Nippon India SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">LIC SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">IDBI SIP Calculator</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td><a href="#" class="text-secondary fw-medium" style="font-size: 15px;">PNB SIP Calculator</a></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Main section end -->
+
+    <!-- footer section start -->
+    <footer class="px-4 custom-footer-bg">
+        <section class="footer-top">
+            <div class="container-fluid">
+            <nav class="py-4 custom-breadcrumb-divider" aria-label="breadcrumb">
+                <ol class="breadcrumb fw-medium custom-breadcrumb-font">
+                <li class="breadcrumb-item"><a href="#" class="text-secondary">Home</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-secondary">Calculators</a></li>
+                <li class="breadcrumb-item"><a href="#" class="text-secondary">SIP Calculators</a></li>
+                </ol>
+            </nav>
+
+            <div class="row">
+                <div class="col-md-4">
+                <a href="#">
+                    <img src="./assets/images/groww-logo-light.svg" class="img-fluid mb-3 custom-footer-logo" alt="Groww Logo">
+                </a>
+                <p class="fw-medium text-secondary mb-3 custom-footer-address">
+                    Vaishnavi Tech Park, South Tower, 3rd Floor<br>
+                    Sarjapur Main Road, Bellandur, Bengaluru – 560103<br>
+                    Karnataka
+                </p>
+                <div>
+                    <h6 class="d-inline-block text-muted pb-1 custom-contact-us">Contact Us</h6>
+                    <ul class="d-flex align-items-center ps-0 pt-2">
+                    <li class="pe-2"><a href="#"><i class="fa-brands fa-x-twitter fs-5 text-secondary"></i></a></li>
+                    <li class="px-2"><a href="#"><i class="fa-brands fa-instagram fs-5 text-secondary"></i></a></li>
+                    <li class="px-2"><a href="#"><i class="fa-brands fa-facebook fs-5 text-secondary"></i></a></li>
+                    <li class="px-2"><a href="#"><i class="fa-brands fa-linkedin fs-5 text-secondary"></i></a></li>
+                    <li class="px-2"><a href="#"><i class="fa-brands fa-youtube fs-5 text-secondary"></i></a></li>
+                    </ul>
+                </div>
+                </div>
+
+                <div class="col-md-5 offset-md-3">
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                    <h6 class="text-dark fw-semibold">GROWW</h6>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-secondary">About Us</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Pricing</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Blog</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Media & Press</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Careers</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Help & Support</a></li>
+                        <li class="mb-2"><a href="#" class="text-secondary">Trust & Safety</a></li>
+                    </ul>
+                    </div>
+
+                    <div class="col-md-8">
+                    <h6 class="text-dark fw-semibold">PRODUCTS</h6>
+                    <div class="row">
+                        <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-secondary">Stocks</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">F&O</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">MTF</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">ETF</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">IPO</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Credit</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Mutual Funds</a></li>
+                        </ul>
+                        </div>
+                        <div class="col-6">
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><a href="#" class="text-secondary">Groww Terminal</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Stocks Screener</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Algo Trading</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Commodities</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Groww Digest</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Demat Account</a></li>
+                            <li class="mb-2"><a href="#" class="text-secondary">Groww AMC</a></li>
+                        </ul>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+            <div class="d-flex justify-content-between text-muted pt-3">
+                <span>© 2016-2025 Groww. All rights reserved.</span>
+                <span>Version: 6.3.7</span>
+            </div>
+            </div>
+        </section>
+
+        <section class="footer-bottom">
+            <div class="container-fluid">
+            <!-- Reserved for future content -->
+            </div>
+        </section>
+    </footer>
+    <!-- footer section end -->
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./assets/js/script.js"></script>
+    <script src="./assets/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+img{
+    display: block;
+    width: 100%;
+}
+
+ul,ol{
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+}
+
+/* Header start */
+
+.groww-logo {
+    max-height: 32px;
+    height: auto;
+    width: auto;
+}
+
+.search-shortcut {
+    font-size: 12px;
+}
+
+.login-button {
+    font-size: 14px;
+}
+
+/* Header end */
+
+/* Main section start */
+
+/* Headings and typography */
+.text-heading {
+    color: #44475b;
+}
+
+/* Justify text (Bootstrap doesn't provide a class for this) */
+.text-justify {
+    text-align: justify;
+}
+
+/* Chart legends */
+.legend-box {
+    display: inline-block;
+    width: 25px;
+    height: 12px;
+    border-radius: 20px;
+}
+
+.bg-invested {
+    background-color: #EEF0FF;
+}
+
+.bg-returns {
+    background-color: #4C6EF5;
+}
+
+/* CTA section image */
+.invest-image {
+    width: 130px;
+}
+
+/* Font size override for links in tables */
+.small-link {
+    font-size: 15px;
+}
+
+/* Main section end */
+
+/* footer section start */
+
+/* Footer background */
+footer {
+  background-color: #F0F0F2;
+}
+
+/* Breadcrumb divider */
+footer nav[aria-label="breadcrumb"] {
+  --bs-breadcrumb-divider: '>';
+}
+
+/* Breadcrumb font size */
+footer .breadcrumb {
+  font-size: 13px;
+}
+
+/* Footer logo image size */
+footer .footer-top img {
+  max-height: 40px;
+  height: auto;
+  width: auto;
+}
+
+/* Footer address paragraph */
+footer .footer-top p {
+  font-size: 15px;
+}
+
+/* Contact Us dashed underline */
+footer h6.text-muted {
+  border-bottom: 0.5px dashed #959da4;
+}
+
+/* footer section end */
+
+#sipChart {
+  width: 100% !important;
+  height: 100% !important;
+}
