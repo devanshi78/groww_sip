@@ -23,29 +23,3 @@ timeSlider.addEventListener('input', () => {
   timeValue.textContent = timeSlider.value;
   updateChart();
 });
-
-const ctx = document.getElementById('sipChart');
-
-const chart = new Chart(ctx, {
-  type: 'doughnut',
-  data: {
-    labels: [],
-    datasets: [{
-      data: [60, 40],
-      backgroundColor: ['#EEF0FF', '#4C6EF5'],
-      hoverOffset: 4
-    }]
-  },
-  options: {
-    cutout: '60%',
-    plugins: {
-      legend: {
-        display: false
-      },
-      tooltip: {
-        enabled: false
-      }
-    }
-  }
-});
-
